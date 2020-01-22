@@ -1,7 +1,7 @@
 {
-  "name": "github-commits-backend",
+  "name": "commit-history-backend",
   "version": "1.0.0",
-  "description": "read github commits",
+  "description": "Tell the commits tale",
   "main": "src/app.ts",
   "author": "Babacar Cissé DIA <bcdbuddy@outlook.com>",
   "license": "MIT",

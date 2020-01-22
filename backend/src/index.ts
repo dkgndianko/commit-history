@@ -5,6 +5,7 @@ import logger from './middleware/logger.middleware'
 import cors from './middleware/cors.middleware'
 import { error404, error500 } from './middleware/error.middleware'
 import validateEnv from './validateEnv'
+import commitRouter from './route/commitRouter'
 dotenv.config()
 
 // will crash the app if some env are missing
@@ -23,7 +24,7 @@ if (DEBUG) {
 }
 
 // App routes
-// app.use()
+app.use('/commit', commitRouter)
 app.get('/', (request: Request, response: Response) => {
   response.json({
     status: 'world',

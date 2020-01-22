@@ -1,0 +1,9 @@
+{
+  "name": "github-commits",
+  "version": "1.0.0",
+  "description": "read github commits",
+  "main": "src/app.ts",
+  "author": "Babacar Cissé DIA <bcdbuddy@outlook.com>",
+  "license": "MIT",
+  "private": false
+}

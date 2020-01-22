@@ -1,9 +1,39 @@
 {
-  "name": "github-commits",
+  "name": "github-commits-backend",
   "version": "1.0.0",
   "description": "read github commits",
   "main": "src/app.ts",
   "author": "Babacar Cissé DIA <bcdbuddy@outlook.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "scripts": {
+    "test": "echo \"No test implemented yet\" || exit 0",
+    "watch": "concurrently -k -n \"Typescript,Node server\" -p\"[{name}]\" -c \"blue,green\" \"npm:dev\" \"npm:serve\"",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "serve": "nodemon dist/index.js",
+    "lint": "standard --parser typescript-eslint-parser --plugin typescript ./src/*.ts"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.2",
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "envalid": "^6.0.0",
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "12.x",
+    "yarn": "1.x",
+    "npm": "6.x"
+  }
 }

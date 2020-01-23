@@ -10,10 +10,10 @@ This is a sample project retrieving user commits
 references: https://developer.github.com/v3/
 
 # Front end
-Implemented with vuejs
+Implemented with vuejs [available here](./frontend/README.md)
 
 # Back end
-Implemented with expressjs with typescript
+Implemented with expressjs with typescript [available here](./backend/README.md)
 
 ## Installation
 
@@ -22,26 +22,6 @@ Implemented with expressjs with typescript
   cp sample.env .env
   yarn watch
 ```
-
-## Run
-```bash
-  # Dev: compile typescript
-  yarn dev
-
-  # Serve: start the server
-  yarn serve
-
-  # Watch: Run both server and compilation on watch mode
-  yarn watch
-
-  # Build for production
-  yarn build
-
-  # Linting using standard/standard
-  yarn lint
-
-```
-
 
 - implement repository pattern
 - add commit router with associated controller

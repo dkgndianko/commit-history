@@ -1,6 +1,5 @@
 # _Commit History_
-This is a sample project retrieving user commits
-
+This is a sample project retrieving commits from a repository (this very one! Yes recursive, right!) for a specific repository and displaying in with light frontend (here Vuejs)
 
 
 # Objectives:
@@ -15,10 +14,18 @@ Implemented with vuejs [available here](./frontend/README.md)
 # Back end
 Implemented with expressjs with typescript [available here](./backend/README.md)
 
-## Installation
+# Installation
 
 ```bash
   git clone git@github.com:bcdbuddy/commit-history.git
+  
+  # Front end
+  cd frontend
+  cp sample.env .env
+  yarn serve
+
+  # Back end
+  cd backend
   cp sample.env .env
   yarn watch
 ```

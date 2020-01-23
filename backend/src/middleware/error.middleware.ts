@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
-import AppApiResponse from '../response/AppApiResponse'
 import NotFoundException from '../exception/NotFoundException'
+import AppApiErrorResponse from '../response/AppApiErrorResponse'
 
 export function error404(req: Request, res: Response, next: NextFunction) {
   // will be catch by the next and last middleware
@@ -14,5 +14,5 @@ export function error500(error: any, req: Request, res: Response, next: NextFunc
 
   return res
     .status(status)
-    .json(new AppApiResponse(data, AppApiResponse.TYPE_ERROR, message))
+    .json(new AppApiErrorResponse(data, message))
 }

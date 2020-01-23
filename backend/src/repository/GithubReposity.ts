@@ -21,10 +21,6 @@ export default class GithubReposity {
       axios({
         url: `https://api.github.com/repos/${owner}/${repository}/commits`,
         method: 'GET',
-        headers: {
-          // 'content-type': ''
-          // 'User-Agent': ''
-        }
       })
         .then((response: AxiosResponse) => {
           resolve(response.data.map(commit => new Commit(commit)))

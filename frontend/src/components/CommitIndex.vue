@@ -1,11 +1,11 @@
 <template>
   <div class="commits-wrapper">
     <h2>Commits for repository <a href="https://github.com/bcdbuddy/commit-history">bcdbuddy/commit-history</a></h2>
-    <button @click.prevent="loadCommits" :disabled="loading">Refresh</button>
+    <button class="refresh-button" @click.prevent="loadCommits" :disabled="loading">Refresh</button>
     <p v-if="message">{{ message }}</p>
+    <div class="loader" v-if="loading"></div>
+    <div class="overlay" v-if="loading"></div>
     <div class="commits">
-      <div class="loader" v-if="loading"></div>
-      <div class="overlay" v-if="loading"></div>
       <div class="commit" v-for="commit in sortedCommits" :key="commit.id">
         <div class="commit-author-avatar">
           <img :src="commit.authorAvatar" :alt="commit.authorName"/>
@@ -13,7 +13,7 @@
         <div class="commit-details">
           <div>
             <h3 class="commit-name">{{ commit.message }}</h3>
-            <span class="commit-id">{{ commit.id }}</span>
+            <span class="commit-id">{{ commit.id }}</span>
           </div>
           <p class="commit-meta">
             by <span class="commit-author">{{ commit.authorName }}</span> at 
@@ -38,7 +38,8 @@ export default {
   },
   computed: {
     sortedCommits () {
-      return this.commits.sort((aCommit, bCommit) => new Date(aCommit.at) - new Date(bCommit.at))
+      return Array.from(this.commits)
+        .sort((aCommit, bCommit) => new Date(bCommit.at) - new Date(aCommit.at))
     }
   },
   methods: {
@@ -65,6 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
+  $accent-color: #ff9800;
   .overlay {
     position: absolute;
     top: 0;
@@ -77,7 +79,9 @@ export default {
   .commits-wrapper {
     position: relative;
     max-width: 600px;
+    min-height: 400px;
     margin: 0 auto;
+    --accent-color: #ff9800;
   }
   .commits {
     padding: 16px;
@@ -91,7 +95,7 @@ export default {
     height: 50px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #ff9800;
+    border-top-color: var(--accent-color);
     position: absolute;
     transform: translate3d(50%, 50%, 0);
     animation: spin 1s ease-in-out infinite;
@@ -108,7 +112,7 @@ export default {
     transition: all .3s;
     &:hover {
       opacity: .85;
-      background-color: #ff99001a;
+      background-color: lighten($accent-color, 30);
     }
     &::before, &::after {
       position: absolute;
@@ -132,7 +136,7 @@ export default {
         display: none;
       }
     }
-    &:last-child(1) {
+    &:last-child {
       &::after {
         display: none;
       }
@@ -183,16 +187,20 @@ export default {
 
   .refresh-button {
     outline: none;
-    background-color: #ff9800;
+    background-color: var(--accent-color);
     cursor: pointer;
     color: white;
     border: none;
     padding: 8px 16px;
-    border-radius: 5px;
-    transition-property: background-color, color;
-    &:hover {
-      color: #ff9800;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-weight: bold;
+    transition-property: background-color, color, border-color;
+    transition-duration: .3s;
+    &:hover {
+      color: var(--accent-color);
       background-color: white;
+      border-color: var(--accent-color);
     }
   }
 

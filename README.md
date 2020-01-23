@@ -10,9 +10,14 @@ references: https://developer.github.com/v3/
 
 # Front end
 Implemented with vuejs [available here](./frontend/README.md)
+![front end preview](frontend_preview.png)
+<!-- deployed at https://commit-history-frontend.herokuapp.com -->
 
 # Back end
 Implemented with expressjs with typescript [available here](./backend/README.md)
+`GET /commit`
+<!-- deployed at https://commit-history-backend.herokuapp.com -->
+![](api_response_sample.png)
 
 # Installation
 
@@ -21,17 +26,16 @@ Implemented with expressjs with typescript [available here](./backend/README.md)
   
   # Front end
   cd frontend
+  yarn install
   cp sample.env .env
   yarn serve
 
   # Back end
   cd backend
+  yarn install
   cp sample.env .env
   yarn watch
 ```
-
-- implement repository pattern
-- add commit router with associated controller
 
 # TODO
 - test
